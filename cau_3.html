@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viết hàm đếm số ký tự nguyên âm trong một chuỗi cho trước</title>
+</head>
+<body>
+    <b>Câu 3:</b> <p>Viết hàm đếm số ký tự nguyên âm trong một chuỗi cho trước.<br>
+    Hàm có 1 tham số truyền vào là một mảng các ký tự.<br>
+    Hàm trả về false nếu không có ký tự nguyên âm nào.
+    <br>
+    Viết chương trình nhập vào một chuỗi bất kỳ. Gọi hàm tìm số ký tự nguyên âm vừa xây dựng ở trên.
+    <br>
+    Nguyên âm là các ký tự: a, o, e, u, i
+    </p>
+    <br>
+    <input id="inputText" type="text" style="width: 300px" placeholder="Nhập 1 chuỗi ký tự">
+    <input type="button" value="Kiểm Tra" onclick="checkString()">
+    <script>
+        function checkAndCountChars(string = null) {
+            let count = 0;
+            let arrString = [];
+            let arrCheck = ['a', 'o', 'e', 'u', 'i', 'A', 'O', 'E', 'U', 'I'];
+            if(string != null){
+
+                arrString = Array.from(string);
+                for (let i = 0; i < arrString.length; i++) {
+                    if(arrCheck.includes(arrString[i])){
+                        count++;
+                    }
+                }
+                if(count > 0){
+                    alert(`Trong chuỗi ${string} có ${count} ký tự nguyên âm xuất hiện.`);
+                }else{
+                    alert(`Không có ký tự nguyên âm nào xuất hiện trong chuỗi ${string}`);
+                }
+
+            }else{
+                alert(`Chuỗi ký tữ nhập vào không được rỗng`);
+            }
+        }
+
+        function checkString() {
+            let inputValue = document.getElementById('inputText').value ?? null;
+            checkAndCountChars(inputValue);
+        }
+    </script>
+</body>
+</html>

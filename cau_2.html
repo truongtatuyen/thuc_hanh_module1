@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng hàm trả về vị trí của phần tử cần tìm trong một mảng cho trước</title>
+</head>
+<body>
+    <b>Câu 2:</b> <p>Xây dựng hàm trả về vị trí của phần tử cần tìm trong một mảng cho trước <br>
+    (Giả sử tất cả các phần tử trong mảng không giống nhau).<br>
+     Hàm có 2 tham số: số phần tử cần tìm, mảng cho trước.
+    <br>
+    Viết chương trình với một mảng số nguyên được khởi tạo trước. <br>
+    Nhập vào một giá trị bất kỳ,<br>
+    sau đó kiểm tra xem giá trị số nguyên bất kỳ vừa nhập có nằm trong mảng đã nhập hay không.</p>
+    <pre>[1, 2, -5, 0, 10, 20]</pre>
+    <br>
+    <input id="inputNumber" type="number" style="width: 300px" value="0" placeholder="Nhập 1 số nguyên , mặc định là 0">
+    <input type="button" value="Kiểm Tra" onclick="checkNumber()">
+    <script>
+        function checkInArray(number, array = []) {
+            let index = null;
+            if(array.length != 0){
+                
+                for (let i = 0; i < array.length; i++) {
+                    if(array[i] == number){
+                        index = i;
+                        alert(`Vị trí(index) của số ${number} là ${i} nằm trong mảng [${array.join(`, `)}]`);
+                        break;
+                    }
+                }
+                if(index == null){
+                    alert(`Số ${number} không nằm trong mảng [${array.join(`, `)}]`);
+                }
+
+            }else{
+                alert(`Mảng nhập vào bị rỗng`);
+            }
+        }
+
+        let arrCheck = [1, 2, -5, 0, 10, 20];
+        function checkNumber() {
+            let inputValue = document.getElementById('inputNumber').value ?? 0;
+            checkInArray(inputValue, arrCheck);
+        }
+    </script>
+</body>
+</html>
